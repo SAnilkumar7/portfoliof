@@ -15,8 +15,8 @@ export type Project = {
 
 export type Experience = {
   id: string;
-  role: string;
   company: string;
+  role: string;
   period: string;
   location: string;
   description: string;
@@ -152,25 +152,7 @@ export const projects: Project[] = [
     website: 'https://jbr-flowers.netlify.app/',
   },
 
-  {
-    id: 'p5',
-    name: 'AetherChat',
-    codename: 'PROJECT_AETHER',
-    image: '/images/projects/7.jpg', 
-    category: 'Realtime Systems',
-    status: 'OPERATIONAL',
-    summary: 'End-to-end encrypted team chat with 1M concurrent connections.',
-    description:
-      'A horizontally-scalable chat backend built on Elixir/OTP with per-room CRDTs and client-side E2EE. Sustained 1M concurrent sockets on a 6-node cluster with <50ms fan-out.',
-    tech: ['Elixir', 'Phoenix', 'CRDT', 'WebRTC', 'PostgreSQL'],
-    metrics: [
-      { label: 'Concurrent', value: '1M' },
-      { label: 'Fan-out', value: '<50ms' },
-      { label: 'Nodes', value: '6' },
-    ],
-    year: '2023',
-    website: 'https://devanampriya.com',
-  },
+  
   {
     id: 'p6',
     name: 'VisionGrid',
@@ -195,8 +177,8 @@ export const projects: Project[] = [
 export const experience: Experience[] = [
   {
     id: 'e1',
-    role: 'Software Developement Engineer - 1',
     company: 'Sonata Software',
+    role: 'Software Developement Engineer - 1',
     period: '2026-jan — Present',
     location: 'Bengaluru, IND',
     description: '',

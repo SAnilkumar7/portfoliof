@@ -59,8 +59,7 @@ export default function HudFrame({ onOpenPalette, onOpenAssistant }: Props) {
           </button>
           <button
             onClick={onOpenAssistant}
-            className="px-3 py-1.5 rounded-md border border-emerald-500/30 bg-emerald-500/5 hover:bg-emerald-500/15 transition-colors font-mono text-[11px] text-emerald-300"
-          >
+            className="px-3 py-1.5 rounded-md border border-emerald-500/30 bg-emerald-500/5 hover:bg-emerald-500/15 transition-colors font-mono text-[11px] text-emerald-300">
             AI ASSIST
           </button>
           <div className="hidden sm:block font-mono text-xs text-cyan-300/70 tabular-nums">
