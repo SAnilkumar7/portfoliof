@@ -11,6 +11,7 @@ import ReviewsModule from './components/modules/ReviewsModule';
 import AssistantModule from './components/modules/AssistantModule';
 import ContactModule from './components/modules/ContactModule';
 import OverrideModule from './components/modules/OverrideModule';
+import Footer from './components/Footer';
 
 function App() {
   const [booted, setBooted] = useState(false);
@@ -45,6 +46,7 @@ function App() {
 
           <main className="relative z-10">
             <Hub onOpen={open} />
+            <Footer onOpen={open} />  
           </main>
 
           {active === 'projects' && <ProjectsModule onClose={() => setActive(null)} />}

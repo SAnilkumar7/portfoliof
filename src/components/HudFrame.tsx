@@ -82,11 +82,7 @@ export default function HudFrame({ onOpenPalette, onOpenAssistant }: Props) {
       </div>
 
       {/* bottom status strip */}
-      <footer className="fixed bottom-0 left-0 right-0 z-40 px-4 sm:px-8 py-2 flex items-center justify-between glass-strong border-t border-cyan-500/20 font-mono text-[10px] text-cyan-500/60">
-        <span>SECTOR 7G · DIGITAL LAB · {profile.location}</span>
-        <span className="hidden sm:inline">RENDER: 60FPS · UPLINK: STABLE</span>
-        <span>© {new Date().getFullYear()} {profile.name}</span>
-      </footer>
+      
     </>
   );
 }
