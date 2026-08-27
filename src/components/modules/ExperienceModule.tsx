@@ -306,13 +306,12 @@ export default function ExperienceModule({
                   ORGANIZATION
                 </div>
 
-                <div className="flex flex-col xl:flex-row xl:items-end xl:justify-between gap-4">
+                <div className="flex flex-col gap-4">
 
                   <div>
-                    <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-emerald-200 leading-tight">
+                    <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-emerald-200 leading-tight w-full">
                       {active.company}
                     </h2>
-
                     <div className="flex flex-wrap items-center gap-3 mt-4">
 
                       <span className="font-mono text-sm text-cyan-300">

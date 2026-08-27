@@ -62,7 +62,7 @@ export const profile = {
     clients: 3,
     repos: 12,
     models: 1,
-    years: 1.9,
+    years: 2.1,
   },
   contact: {
     email: 'anil@digitalhq.dev',
@@ -177,12 +177,16 @@ export const projects: Project[] = [
 export const experience: Experience[] = [
   {
     id: 'e1',
-    company: 'Sonata Software',
+    company: 'Sonata Software Limited',
     role: 'Software Developement Engineer - 1',
     period: '2026-jan — Present',
     location: 'Bengaluru, IND',
-    description: '',
-    highlights: [
+    description:'Working on enterprise ERP and ServiceNow solutions, building services, workflows, and system integrations.',
+    highlights: [ 
+    'ERP & SAP-based application development',
+    'ServiceNow workflows and services',
+    'Enterprise system integrations',
+    'Automation and business solutions',
       
     ],
   },
@@ -192,9 +196,12 @@ export const experience: Experience[] = [
     company: 'EpicMinds pvt',
     period: '2025-june — 2025-sep',
     location: 'Bangalore, IND',
-    description: '',
+    description: 'Developed scalable and responsive web applications using modern frontend technologies, with a focus on React.js and Next.js.',
     highlights: [
-      
+    'Built scalable and responsive web applications.',
+    'Developed reusable UI components with React.js.',
+    'Implemented web applications using Next.js.',
+    'Learned and applied modern frontend development practices.',
     ],
   },
   
