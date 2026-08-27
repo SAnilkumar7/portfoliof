@@ -52,7 +52,7 @@ export default function HudFrame({ onOpenPalette, onOpenAssistant }: Props) {
             onClick={onOpenPalette}
             className="group flex items-center gap-2 px-3 py-1.5 rounded-md border border-cyan-500/30 bg-cyan-500/5 hover:bg-cyan-500/15 transition-colors"
           >
-            <span className="font-mono text-[11px] text-cyan-300/80">⌘K</span>
+            <span className="font-mono text-[11px] text-cyan-300/80">⌘|ctrl+K</span>
             <span className="font-mono text-[11px] text-cyan-400/60 group-hover:text-cyan-300 hidden sm:inline">
               SEARCH
             </span>

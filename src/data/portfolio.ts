@@ -322,27 +322,19 @@ export const reviews: Review[] = [
     role: 'Founder',
     company: 'Deeksha Interior',
     quote:
-      'The telemetry globe Anil built is now the first thing our operators open every shift. It just works, and it is beautiful.',
+      'The website is now the first thing we share with clients. Our projects finally feel alive online, the details stand out beautifully, and it feels completely like our brand.',
     rating: 5,
   },
   {
     id: 'r3',
-    author: 'Priya Nair',
-    role: 'VP Engineering',
-    company: 'Nimbus Fintech',
+    author: 'Sameer Pasha',
+    role: 'Founder',
+    company: 'JBR Flowers E-Commerce  ',
     quote:
       'He owned our ledger from whiteboard to SOC2. Rare to find someone equally comfortable with Rust and a compliance audit.',
     rating: 5,
   },
-  {
-    id: 'r4',
-    author: 'Sofia Almeida',
-    role: 'Founder',
-    company: 'Cobalt Studios',
-    quote:
-      'Anil shipped our entire realtime backend in a quarter and then quietly made it ten times faster. A genuine force multiplier.',
-    rating: 5,
-  },
+  
 ];
 
 
@@ -428,3 +420,24 @@ export const SEQUENCE_LENGTHS = {
 } as const;
 
 // ============ END OF OVERRIDE TYPES ============
+
+// data/portfolio.ts
+
+// Update socialLinks to remove the 'key' field
+export const socialLinks = [
+  {
+    label: 'GitHub',
+    sub: 'source & repos',
+    href: `https://${profile.contact.github}`,
+  },
+  {
+    label: 'LinkedIn',
+    sub: 'career network',
+    href: `https://${profile.contact.linkedin}`,
+  },
+  {
+    label: 'Email',
+    sub: 'direct line',
+    href: `mailto:${profile.contact.email}`,
+  },
+];

@@ -1,6 +1,5 @@
 
-
-// import { useEffect, useState } from 'react';
+// import { useEffect, useRef, useState } from 'react';
 // import { profile } from '@/data/portfolio';
 // import type { ModuleId } from './Hub';
 
@@ -32,9 +31,32 @@
 // export default function Footer({ onOpen }: Props) {
 //   const [typed, setTyped] = useState<string[]>([]);
 //   const [visible, setVisible] = useState(false);
+//   const [started, setStarted] = useState(false);
+//   const footerRef = useRef<HTMLElement | null>(null);
 
+//   // watch for the footer entering the viewport
 //   useEffect(() => {
-//     setVisible(true);
+//     const el = footerRef.current;
+//     if (!el) return;
+
+//     const observer = new IntersectionObserver(
+//       ([entry]) => {
+//         if (entry.isIntersecting) {
+//           setVisible(true);
+//           setStarted(true);
+//           observer.disconnect(); // only trigger once
+//         }
+//       },
+//       { threshold: 0.3 } // fires once ~30% of the footer is on screen
+//     );
+
+//     observer.observe(el);
+//     return () => observer.disconnect();
+//   }, []);
+
+//   // typewriter effect, only runs once "started" flips true
+//   useEffect(() => {
+//     if (!started) return;
 //     let cancelled = false;
 //     let lineIdx = 0;
 //     let charIdx = 0;
@@ -60,10 +82,10 @@
 //     return () => {
 //       cancelled = true;
 //     };
-//   }, []);
+//   }, [started]);
 
 //   return (
-//     <footer className="relative z-10 mt-16 border-t border-cyan-500/20 overflow-hidden">
+//     <footer ref={footerRef} className="relative z-10 mt-16 border-t border-cyan-500/20 overflow-hidden">
 //       {/* top glow line */}
 //       <div className="h-px w-full bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent" />
 
@@ -102,7 +124,7 @@
 //               {logLines.map((_, i) => (
 //                 <div key={i}>
 //                   {typed[i]}
-//                   {i === typed.length - 1 && (
+//                   {started && i === typed.length - 1 && (
 //                     <span className="inline-block w-2 h-4 ml-1 bg-emerald-400 animate-pulse align-middle" />
 //                   )}
 //                 </div>
@@ -199,14 +221,8 @@
 
 
 
-
-
-
-
-
-
 import { useEffect, useRef, useState } from 'react';
-import { profile } from '@/data/portfolio';
+import { profile, socialLinks } from '@/data/portfolio';
 import type { ModuleId } from './Hub';
 
 type Props = {
@@ -219,12 +235,6 @@ const logLines = [
   `> location: ${profile.location}`,
   `> status: ${profile.status}`,
   '> awaiting user input...',
-];
-
-const channels: { label: string; sub: string; href: string; key: string }[] = [
-  { key: 'GH', label: 'GitHub', sub: 'source & repos', href: profile.github ?? '#' },
-  { key: 'LI', label: 'LinkedIn', sub: 'career network', href: profile.linkedin ?? '#' },
-  { key: 'MAIL', label: 'Email', sub: 'direct line', href: `mailto:${profile.email ?? ''}` },
 ];
 
 const navNodes: { label: string; id: ModuleId }[] = [
@@ -240,7 +250,6 @@ export default function Footer({ onOpen }: Props) {
   const [started, setStarted] = useState(false);
   const footerRef = useRef<HTMLElement | null>(null);
 
-  // watch for the footer entering the viewport
   useEffect(() => {
     const el = footerRef.current;
     if (!el) return;
@@ -250,17 +259,16 @@ export default function Footer({ onOpen }: Props) {
         if (entry.isIntersecting) {
           setVisible(true);
           setStarted(true);
-          observer.disconnect(); // only trigger once
+          observer.disconnect();
         }
       },
-      { threshold: 0.3 } // fires once ~30% of the footer is on screen
+      { threshold: 0.3 }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
-  // typewriter effect, only runs once "started" flips true
   useEffect(() => {
     if (!started) return;
     let cancelled = false;
@@ -292,10 +300,10 @@ export default function Footer({ onOpen }: Props) {
 
   return (
     <footer ref={footerRef} className="relative z-10 mt-16 border-t border-cyan-500/20 overflow-hidden">
-      {/* top glow line */}
+      {/* Top glow line */}
       <div className="h-px w-full bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent" />
 
-      {/* faint moving grid backdrop */}
+      {/* Faint moving grid backdrop */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.06]"
         style={{
@@ -305,14 +313,14 @@ export default function Footer({ onOpen }: Props) {
         }}
       />
 
-      {/* sweeping scanline */}
+      {/* Sweeping scanline */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/25 to-transparent animate-scan" />
       </div>
 
       <div className="relative glass-strong px-6 sm:px-10 py-12">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-10">
-          {/* terminal log panel */}
+          {/* Terminal log panel */}
           <div
             className={`lg:col-span-2 rounded-xl border border-cyan-500/20 bg-black/30 p-6 shadow-[0_0_30px_-12px_rgba(34,211,238,0.5)] transition-all duration-700 ${
               visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
@@ -338,7 +346,7 @@ export default function Footer({ onOpen }: Props) {
             </div>
           </div>
 
-          {/* nav nodes */}
+          {/* Nav nodes */}
           <div
             className={`lg:col-span-1 transition-all duration-700 delay-150 ${
               visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
@@ -363,7 +371,7 @@ export default function Footer({ onOpen }: Props) {
             </div>
           </div>
 
-          {/* comm channels */}
+          {/* Comm channels - Clean & Minimal */}
           <div
             className={`lg:col-span-2 transition-all duration-700 delay-300 ${
               visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
@@ -373,9 +381,9 @@ export default function Footer({ onOpen }: Props) {
               COMM CHANNELS
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {channels.map((c, i) => (
+              {socialLinks.map((c, i) => (
                 <a
-                  key={c.key}
+                  key={c.label}
                   href={c.href}
                   target={c.href.startsWith('http') ? '_blank' : undefined}
                   rel="noreferrer"
@@ -384,12 +392,7 @@ export default function Footer({ onOpen }: Props) {
                     visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
                   }`}
                 >
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="font-mono text-xs text-cyan-500/50 group-hover:text-cyan-300/80">
-                      {c.key}
-                    </span>
-                    <span className="w-2 h-2 rounded-full bg-emerald-400/70 animate-pulse-glow" />
-                  </div>
+                  {/* Clean label with no dots */}
                   <div className="font-mono text-base text-cyan-200/90">{c.label}</div>
                   <div className="font-mono text-xs text-cyan-500/50 mt-1">{c.sub}</div>
                 </a>
@@ -399,7 +402,7 @@ export default function Footer({ onOpen }: Props) {
         </div>
       </div>
 
-      {/* bottom bar */}
+      {/* Bottom bar */}
       <div className="relative border-t border-cyan-500/10 glass-strong">
         <div className="max-w-6xl mx-auto px-6 sm:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs text-cyan-500/50">
           <span>© {new Date().getFullYear()} {profile.name} · all systems nominal</span>

@@ -141,7 +141,7 @@ export default function Hub({ onOpen }: Props) {
       </div>
 
       <div className="mt-10 font-mono text-[10px] text-cyan-500/40 animate-fade-in" style={{ animationDelay: '0.5s' }}>
-        TIP · PRESS ⌘K ANYWHERE TO OPEN COMMAND CENTER
+        TIP · PRESS ⌘/ctrl+K ANYWHERE TO OPEN COMMAND CENTER
       </div>
     </div>
   );
